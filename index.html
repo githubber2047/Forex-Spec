@@ -5,52 +5,24 @@
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
 rel="stylesheet">
         <link href="/static/styles.css" rel="stylesheet">
-        <title>CAT MANIA</title>
+        <title>FOREX SPEC</title>
     </head>
     <body>
-        <img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F47%2F2020%2F08%2F01%2Fsiamese-cat-couch_525025708-2000.jpg" alt="Cat picture" />
+        <img src="https://media.gettyimages.com/id/sb10064487q-001/zh/%E7%85%A7%E7%89%87/usa-new-york-stock-exchange-building-with-statue-of-george-washington.jpg?s=1024x1024&w=gi&k=20&c=MX5Ba7twbkyoC0pguUsbGKQCURJiJvh2mGeE0mxWPKg=" alt="Cat picture" />
         <div class="jumbotron">
-            <h1>CAT MANIA</h1>
+            <h1>FOREX SPEC</h1>
         </div>
         <div class="container">
             <div class="section">
-                <h2>Add a Cat breed</h2>
-                <!-- A place for players to enter Cat breed, popularity and Temperament -->
+                <h2>Place your bet on GBP/USD exchange rate</h2>
+                <!-- A place for players to enter a bet in Eth, and your prediction for the exchange rate between Pound Sterling and US$ -->
                 <form action="/" method="post">
-                    <input name="cat_breed" placeholder="Cat" type="text">
-                    <input name="popularity" placeholder="Popularity" type="number" min="1" max="100">
-                    <input name="temperament" placeholder="Temperament" type="text">
-                    <input type="submit" value="Add cat">
+                    <input name="eth_size" placeholder="Amount of ETH" type="number">
+                    <input name="exchange rate prediction" placeholder="GBP/USD" type="number" min="1" max="100">
+                    <input type="submit" value="Place your bet!">
                 </form>
             </div>
 
-            <div class="section">
-                <h2>All Cat breeds</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Cat breed</th>
-                            <th>Popularity</th>
-                            <th>Temperament</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Display database entries -->
-                        {% for cat in catlist %}
-                        <tr>
-                            <td>{{ cat.cat }}</td>
-                            <td>{{ cat.popularity }}</td>
-                            <td>{{ cat.temperament }}</td>
-                            <td>
-                                <form action="{{ url_for('delete', cat_id=cat.id) }}" method=""post">
-                                  <button type="submit">Delete</button>
-                                </form>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </div>
+           
     </body>
 </html>
