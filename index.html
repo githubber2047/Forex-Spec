@@ -2,9 +2,55 @@
 
 <html lang="en">
     <head>
-        <title>Birthdays</title>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
+rel="stylesheet">
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>CAT MANIA</title>
     </head>
     <body>
-            <p> Cats and Dogs are equal.</p>
+        <img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F47%2F2020%2F08%2F01%2Fsiamese-cat-couch_525025708-2000.jpg" alt="Cat picture" />
+        <div class="jumbotron">
+            <h1>CAT MANIA</h1>
+        </div>
+        <div class="container">
+            <div class="section">
+                <h2>Add a Cat breed</h2>
+                <!-- A place for players to enter Cat breed, popularity and Temperament -->
+                <form action="/" method="post">
+                    <input name="cat_breed" placeholder="Cat" type="text">
+                    <input name="popularity" placeholder="Popularity" type="number" min="1" max="100">
+                    <input name="temperament" placeholder="Temperament" type="text">
+                    <input type="submit" value="Add cat">
+                </form>
+            </div>
+
+            <div class="section">
+                <h2>All Cat breeds</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cat breed</th>
+                            <th>Popularity</th>
+                            <th>Temperament</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Display database entries -->
+                        {% for cat in catlist %}
+                        <tr>
+                            <td>{{ cat.cat }}</td>
+                            <td>{{ cat.popularity }}</td>
+                            <td>{{ cat.temperament }}</td>
+                            <td>
+                                <form action="{{ url_for('delete', cat_id=cat.id) }}" method=""post">
+                                  <button type="submit">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </body>
 </html>
