@@ -43,6 +43,9 @@ contract ExchangeRateBetting {
         if ((bet.above && price > int(bet.betRate)) || (!bet.above && price < int(bet.betRate))) {
             bet.won = true;
             payable(msg.sender).transfer(bet.amount * 2);
+        } else {
+            return;
+        }
+
         }
     }
-}
