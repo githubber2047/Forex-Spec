@@ -30,7 +30,7 @@ const abi = [
     }
 ];
 
-const contractAddress = '0x536068308845780611E9d3EC9643d1212D91F935';
+const contractAddress = '0x4A574D86E475dCa902a3F805AA9fC65274E028fE';
 
 window.addEventListener('load', async () => {
     if (window.ethereum) {
