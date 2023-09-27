@@ -1,0 +1,12 @@
+Copy
+body {
+    font-family: Arial, sans-serif;
+}
+
+#placeBet {
+    margin: 20px 0;
+}
+
+input, select {
+    margin: 0 10px;
+}
