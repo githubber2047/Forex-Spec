@@ -1,3 +1,37 @@
+const abi = [
+    {
+        "constant": false,
+        "inputs": [],
+        "name": "placeBet",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "constant": false,
+        "inputs": [],
+        "name": "settleBet",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "bets",
+        "outputs": [],
+        "stateMutability": "view",
+        "type": "function"
+    }
+];
+
+const contractAddress = '0x536068308845780611E9d3EC9643d1212D91F935';
+
 window.addEventListener('load', async () => {
     if (window.ethereum) {
         window.web3 = new Web3(ethereum);
@@ -17,12 +51,7 @@ window.addEventListener('load', async () => {
 
 async function startApp() {
     const accounts = await web3.eth.getAccounts();
-    const networkId = await web3.eth.net.getId();
-    const deployedNetwork = ExchangeRateBetting.networks[networkId];
-    const instance = new web3.eth.Contract(
-        ExchangeRateBetting.abi,
-        deployedNetwork && deployedNetwork.address,
-    );
+    const instance = new web3.eth.Contract(abi, contractAddress);
 
     const placeBetButton = document.querySelector('button');
     placeBetButton.addEventListener('click', async () => {
